@@ -1,0 +1,573 @@
+/*=============== Google Fonts ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+/*=============== Css Variables ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --title-color: #4a4a4a;
+  --text-color: rgb(100, 98, 98);
+  --text-color-alt: #999;
+  --bg-color: #fff;
+  --bg-color-alt: #e9ecef;
+  --border-color: #f1f1f1;
+
+  /*========== Font and typography ==========*/
+  --roboto-font: 'Roboto', sans-serif;
+  --mono-font: 'Roboto Mono', monospace;
+
+  --fs-h1: 2.75rem;
+  --fs-h2: 2.25rem;
+  --fs-lg: 1.125rem;
+  --fs-base: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+
+  /*========== Font Weight ==========*/
+  --medium: 500;
+  --semibold: 600;
+  --bold: 700;
+}
+
+/*=============== Base ===============*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: var(--roboto-font);
+  font-size: var(--fs-base);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--mono-font);
+  font-weight: var(--bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+textarea,
+input {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+
+/*=============== Reusable Css ===============*/
+.container{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+}
+
+.grid{
+  display: grid;
+}
+
+.section{
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+}
+
+.section__title{
+  font-size: 25px;
+  line-height: 1.17em;
+  font-weight: var(--medium);
+  margin-bottom: 1.12rem;
+}
+
+.text-lg{
+  font-size: var(--fs-lg);
+  line-height: 1.67em;
+}
+
+.text-sm{
+  font-size: var(--fs-sm);
+  line-height: 1.45em;
+}
+
+/*=============== Header ===============*/
+
+.header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav{
+  height: calc(var(--header-height) + 0.875rem);
+  display:flex;
+  align-items: flex-end; 
+
+}
+
+.nav__list{
+  display: flex;
+  column-gap: 3.25rem;
+}
+
+.nav__link{
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: var(--bold);
+  font-family: var(--mono-font);
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav__link:hover{
+  opacity: 0.5;
+}
+
+.nav__link::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -0.5rem;
+  width: 7px;
+  height: 2px;
+  background-color: #fff;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+
+.nav__link:hover::after{
+  opacity: 1;
+
+}
+
+.nav__close,
+.nav__toggle{
+  display: none;
+}
+
+
+/* Active Link */
+
+.active-link{
+  opacity: 0.5;
+}
+
+.acctive-link::after{
+  opacity: 1;
+}
+
+/* Scroll Header */
+
+/*=============== Home ===============*/
+
+.home{
+  background : url(../img/pexels-aleksandar-pasaric-4505907.jpg) no-repeat;
+  background-size: cover;
+  background-position:50%;
+  padding-top: 5.5rem;
+  margin-bottom:4rem;
+  position: relative;
+}
+
+.home::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--linear-gradient);
+}
+
+.home__img,
+.home__data{
+  z-index: 10;
+}
+
+.home__img{
+  width: 90%;
+  height: 350px;
+  object-fit:cover;
+  border-radius: 0.3rem;
+  transform: translateY(3.125rem);
+  box-shadow: 0 0 27px rgba(227, 227, 227, 0.837);
+}
+
+
+.home__container{
+  grid-template-columns: 4fr 8fr;
+  column-gap: 1.875rem;
+}
+
+.home__data{
+  padding-top: 15%;
+}
+
+.home__name,
+.home__work,
+.home__list,
+.home__social-link-1,
+.home__social-link-2,
+.home__social-link-3,
+.home__social-link-4{
+  color: #fffefe;
+  font-family: var(--mono-font);
+}
+
+.home__name{
+  font-size: var(--fs-h1);
+  line-height: 1.14rem;
+  margin: 0.9em 0 0.23em;
+
+}
+
+.home__work{
+  margin-bottom: 2.5em;
+}
+
+.home__list dt{
+  float: left;
+  font-weight: var(--bold);
+  opacity: 0.7;
+}
+
+.home__list dd{
+  padding-left: 6.25em;
+
+}
+
+.home__list dd:not(:last-child){
+  margin-bottom: 0.94em;
+
+}
+
+.home__socials{
+  margin:1.25rem 0 2.2rem;
+}
+
+
+.home__social-link-1,
+.home__social-link-2,
+.home__social-link-3,
+.home__social-link-4{
+  font-size: 1.7rem;
+  line-height: 1.36rem;
+  margin-right: 0.25rem;
+  opacity:0.7;
+  transition: 0.3s;
+}
+
+.home__social-link-1:hover{
+  color: rgb(228, 64, 95);
+  opacity:1;
+}
+
+.home__social-link-2:hover{
+  color: rgb(10, 102, 194);
+  opacity:1;
+}
+
+
+.home__social-link-3:hover{
+  color: rgb(255, 0, 0);
+  opacity:1;
+}
+
+
+.home__social-link-4:hover{
+  color: rgb(11, 217, 245);
+  opacity:1;
+}
+
+
+/*=============== Hello ===============*/
+.hello__details{
+  margin-bottom: 1.67em;
+  text-align:justify;
+}
+/*=============== Buttons ===============*/
+.button{
+  display: inline-block;
+  background: url(../img/pexels-aleksandar-pasaric-4505907.jpg);
+  opacity: 0.5;
+  color: #fff;
+  padding: 1.1em 2.1em ;
+  border-radius: 1.56rem;
+  font-weight: var(--semibold);
+  transition: 0.3s;
+}
+
+.button:hover{
+  opacity: 1;
+}
+
+
+/*=============== Resume ===============*/
+
+.container-1{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+}
+.container-1{
+	padding-right: calc(10% - 30px);
+}
+main.row{
+  margin-top: 5%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 20px;
+}
+.col header.title{
+	font-family: helvetica;
+	color: #0c85d0;
+	padding: 0px 0px 20px 30px;
+}
+.col .contents{
+	padding: 0px 30px;
+	border-left: 2px solid #bababa;
+}
+.col .contents .box{
+	position: relative;
+	padding: 20px;
+	border: 1px solid #eaeaea;
+	background-color: #ffffff;
+	cursor: pointer;
+	transition: all 0.4s;
+	margin-bottom: 20px;
+}
+.col .contents .box:hover{
+	box-shadow: 0px 3px 12px 0px #ccc;
+	border: 1px solid transparent;
+}
+.col .contents .box::before{
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	right: calc(100% + 22px);
+	top: 0;
+	background-color: #0894db;
+	border: 2px solid white;
+}
+.box h4{
+	position: relative;
+	color: #0f9cd3;
+}
+.box h3{
+	font-size: 19px;
+	padding: 10px 0px 6px;
+	font-family: helvetica;
+	color: #444;
+}
+.box p{
+	line-height: 1.2;
+	color: #666;
+	font-size: 17px;
+}
+@media(max-width: 768px){
+	main.row{
+		grid-template-columns: 1fr;
+	}
+	.row .col:nth-child(2){
+		margin-top: 30px;
+	}
+}
+
+/*=============== Skills ===============*/
+
+/*=============== Projects ===============*/
+
+/*=============== Testimonials ===============*/
+
+/*=============== Blog ===============*/
+
+/*=============== Contact ===============*/
+.contact{
+  margin-top: 5%;
+  background: url(../img/pexels-aleksandar-pasaric-4505907.jpg);
+  background-size: cover;
+  background-position: 50%;
+  position: relative;
+}
+
+.contact::before{
+  content: '';
+  background: var(--linear-gradient);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.contact___content{
+  z-index: 10;
+  position: relative;
+}
+
+.contact__container{
+  grid-template-columns: 4fr 5fr 3fr;
+  column-gap: 1.875rem;
+  padding-top: 1.25rem;
+}
+
+.contact.section__title,
+.contact__list,
+.contact__social-link,
+::placeholder,
+.contact__input,
+.contact__form-title,
+.footer__copy{
+  color: #fff;
+  font-family: var(--mono-font);
+}
+
+.contact__list{
+  margin-bottom: 3.25rem;
+}
+
+.contact__list dt{
+  float: left;
+  font-weight: var(--bold);
+  text-transform: uppercase;
+}
+
+.contact__list dd{
+  padding-left: 6.25em;
+  margin-bottom: 0.94em;
+
+}
+
+.contact__socials li{
+  margin-bottom: 0.75rem;
+}
+.contact__social-link{
+  font-family: var(--roboto-font);
+}
+
+.contact__form{
+  position: relative;
+}
+
+.contact__form-title{
+  margin-bottom: 1.25em;
+}
+
+.contact__input-div{
+  margin-bottom: 0.94em;
+}
+
+.contact__input{
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 0.625rem;
+}
+
+.textarea{
+  resize: none;
+  height: 7.2rem;
+}
+
+.contact__input:focus{
+  box-shadow: inset 0 0 5px 0 #fff;
+}
+.contact__message{
+  position: absolute;
+  bottom: 33%;
+  left: 0;
+  font-family: var(--mono-font);
+}
+
+
+.color-light{
+  opacity: 0;
+}
+
+
+.contact__button{
+  margin-top: 1.875rem;
+  width: 100%;
+  box-shadow: 0 1px 29px rgb(0, 0, 0 / 40%);
+}
+
+.color-dark{
+  opacity: 0.4;
+}
+
+.footer__copy{
+  opacity: 0.4;
+  margin-top: 3.75rem;
+  text-align: center;
+}
+
+
+
+
+
+
+
+/*=============== Blog Details ===============*/
+
+/*=============== Style Switcher ===============*/
+
+/*=============== BreakPoints ===============*/
+/* for large devices */
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 992px) {
+}
+
+/* for medium devices */
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 576px) {
+}
+
+/* for small devices */
+@media screen and (max-width: 350px) {
+}
